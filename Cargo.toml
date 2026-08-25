@@ -1,0 +1,19 @@
+[package]
+name = "btc_verifier"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+seahash = "4.1"
+rayon = "1.8"
+memmap2 = "0.9"
+bip39 = "2.0"
+bitcoin = "0.30"
+rand = "0.8"
+rusqlite = { version = "0.30", features = ["bundled"] }
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1
+panic = "abort"
