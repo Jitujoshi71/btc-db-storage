@@ -29,6 +29,8 @@ curl -s https://api.github.com/repos/Jitujoshi71/btc-db-storage/releases/tags/v1
 | cut -d '"' -f 4 \
 | xargs -n 1 curl -L \
 | tar -xzvf -
+mv root/db_api/btc_addresses.db btc_addresses.db
+rm -rf root/
 cargo build --release
 cp target/release/btc_verifier ./scan_app
 rm -rf target/
