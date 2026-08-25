@@ -8,10 +8,10 @@ rustc --version
 cargo new btc_verifier
 cd btc_verifier
 rm Cargo.toml
-curl -L https://github.com/Jitujoshi71/bloom/releases/download/v1.0.0/Cargo.toml >> Cargo.toml
+curl -L https://github.com/Jitujoshi71/btc-db-storage/releases/download/v1.0.0/Cargo.toml >> Cargo.toml
 cd src
 rm main.rs
-curl -L https://github.com/Jitujoshi71/bloom/releases/download/v1.0.0/main.rs >> main.rs
+curl -L https://github.com/Jitujoshi71/btc-db-storage/releases/download/v1.0.0/main.rs >> main.rs
 cd ..
 curl -L https://github.com/Jitujoshi71/bloom/releases/download/v1.0.0/words.txt >> words.txt
 screen -S btc
@@ -35,4 +35,4 @@ cargo build --release
 cp target/release/btc_verifier ./scan_app
 rm -rf target/
 
-
+./scan_app
