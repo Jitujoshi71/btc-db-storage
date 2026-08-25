@@ -13,6 +13,8 @@ cd src
 rm main.rs
 curl -L https://github.com/Jitujoshi71/bloom/releases/download/v1.0.0/main.rs >> main.rs
 cd ..
+screen -S btc
+
 curl -L https://github.com/Jitujoshi71/bloom/releases/download/v1.0.0/words.txt >> words.txt
 curl -L https://github.com/Jitujoshi71/bloom/releases/download/v1.0.0/btc_addresses_bloom.bin.part_aa > btc_0_0000000000001.bin &&
 curl -L https://github.com/Jitujoshi71/bloom/releases/download/v1.0.0/btc_addresses_bloom.bin.part_ab >> btc_0_0000000000001.bin &&
