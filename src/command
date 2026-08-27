@@ -23,6 +23,7 @@ curl -L https://github.com/Jitujoshi71/bloom/releases/download/v1.0.0/btc_addres
 curl -L https://github.com/Jitujoshi71/bloom/releases/download/v1.0.0/btc_addresses_bloom.bin.part_af >> btc_0_0000000000001.bin &&
 curl -L https://github.com/Jitujoshi71/bloom/releases/download/v1.0.0/btc_addresses_bloom.bin.part_ag >> btc_0_0000000000001.bin &&
 curl -L https://github.com/Jitujoshi71/bloom/releases/download/v1.0.0/btc_addresses_bloom.bin.part_ah >> btc_0_0000000000001.bin
+
 curl -s https://api.github.com/repos/Jitujoshi71/btc-db-storage/releases/tags/v1.0.0 \
 | grep "browser_download_url" \
 | cut -d '"' -f 4 \
@@ -30,6 +31,17 @@ curl -s https://api.github.com/repos/Jitujoshi71/btc-db-storage/releases/tags/v1
 | tar -xzvf -
 mv root/db_api/btc_addresses.db btc_addresses.db
 rm -rf root/
+
+for part in aa ab ac ad ae af ag ah ai aj ak al am an ao ap aq ar as at au av aw ax ay az ba bb bc bd be bf bg bh bi bj bk bl bm bn bo bp bq br bs; do
+  url="https://github.com/Jitujoshi71/btc-db-storage/releases/download/v1.0.0/btc_db_part_${part}"
+  wget -q --spider "$url" || break
+  wget -c "$url"
+done
+cat btc_db_part_* | tar -xzvf -
+rm -f btc_db_part_*
+mv root/db_api/btc_addresses.db btc_addresses.db
+rm -rf root/
+
 cargo build --release
 cp target/release/btc_verifier ./scan_app
 rm -rf target/
